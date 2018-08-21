@@ -13,6 +13,9 @@
 		7A72EB5021246B25000BB3A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A72EB4E21246B25000BB3A2 /* Main.storyboard */; };
 		7A72EB5C21246B25000BB3A2 /* RenderLaboratoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A72EB5B21246B25000BB3A2 /* RenderLaboratoryTests.swift */; };
 		7A72EB6721246B25000BB3A2 /* RenderLaboratoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A72EB6621246B25000BB3A2 /* RenderLaboratoryUITests.swift */; };
+		7ACB00F721246CF5003807F3 /* Dummy.metal in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB00F621246CF5003807F3 /* Dummy.metal */; };
+		7ACB00FB212475DC003807F3 /* RLRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB00FA212475DC003807F3 /* RLRenderer.swift */; };
+		7ACB00FD212478CD003807F3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7ACB00FC212478CD003807F3 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		7A72EB6221246B25000BB3A2 /* RenderLaboratoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenderLaboratoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A72EB6621246B25000BB3A2 /* RenderLaboratoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderLaboratoryUITests.swift; sourceTree = "<group>"; };
 		7A72EB6821246B25000BB3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7ACB00F621246CF5003807F3 /* Dummy.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; name = Dummy.metal; path = Renderer/Dummy.metal; sourceTree = SOURCE_ROOT; };
+		7ACB00FA212475DC003807F3 /* RLRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLRenderer.swift; sourceTree = "<group>"; };
+		7ACB00FC212478CD003807F3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +82,9 @@
 		7A72EB3C21246B24000BB3A2 = {
 			isa = PBXGroup;
 			children = (
+				7ACB00FC212478CD003807F3 /* README.md */,
 				7A72EB4721246B24000BB3A2 /* RenderLaboratory */,
+				7ACB00F521246C84003807F3 /* Renderer */,
 				7A72EB5A21246B25000BB3A2 /* RenderLaboratoryTests */,
 				7A72EB6521246B25000BB3A2 /* RenderLaboratoryUITests */,
 				7A72EB4621246B24000BB3A2 /* Products */,
@@ -122,6 +130,15 @@
 				7A72EB6821246B25000BB3A2 /* Info.plist */,
 			);
 			path = RenderLaboratoryUITests;
+			sourceTree = "<group>";
+		};
+		7ACB00F521246C84003807F3 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				7ACB00FA212475DC003807F3 /* RLRenderer.swift */,
+				7ACB00F621246CF5003807F3 /* Dummy.metal */,
+			);
+			path = Renderer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACB00FD212478CD003807F3 /* README.md in Resources */,
 				7A72EB4D21246B25000BB3A2 /* Assets.xcassets in Resources */,
 				7A72EB5021246B25000BB3A2 /* Main.storyboard in Resources */,
 			);
@@ -254,7 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACB00FB212475DC003807F3 /* RLRenderer.swift in Sources */,
 				7A72EB4B21246B24000BB3A2 /* ViewController.swift in Sources */,
+				7ACB00F721246CF5003807F3 /* Dummy.metal in Sources */,
 				7A72EB4921246B24000BB3A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +442,7 @@
 				CODE_SIGN_ENTITLEMENTS = RenderLaboratory/RenderLaboratory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G2MTG2NMAT;
 				INFOPLIST_FILE = RenderLaboratory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,6 +461,7 @@
 				CODE_SIGN_ENTITLEMENTS = RenderLaboratory/RenderLaboratory.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = G2MTG2NMAT;
 				INFOPLIST_FILE = RenderLaboratory/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
