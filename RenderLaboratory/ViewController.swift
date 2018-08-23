@@ -18,13 +18,13 @@ class ViewController: NSViewController {
     var _renderer:RLRenderer?;
     
     override func viewDidLoad() {
-        super.viewDidLoad();
-
+       
+        
         // Do any additional setup after loading the view.
         _view = MTKView();
-//        _view = self.view as MTKView;
+        self.view=_view!;
         _view?.device=MTLCreateSystemDefaultDevice();
-        if _view!.device == nil
+        if _view?.device == nil
         {
             NSLog("Metal is not supported on this device");
             return;
@@ -37,7 +37,7 @@ class ViewController: NSViewController {
         }
         _view?.delegate = _renderer;
         _view?.preferredFramesPerSecond  =  60;
-        self.view = _view!;
+         super.viewDidLoad();
     }
 
 //    override var representedObject: Any? {
