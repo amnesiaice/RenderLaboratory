@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import Cocoa
 import MetalKit
 
 
 class RLRenderer : NSObject,MTKViewDelegate   {
     var _device         :   MTLDevice?
     var _commandQueue   :   MTLCommandQueue?
+    var _pipelineState  :   MTLRenderPipelineState?
+    var _viewportSize   :   vector_uint2 = uint2(800,600);
 
     struct Color {
         var red:Double = 0;
@@ -83,12 +86,14 @@ class RLRenderer : NSObject,MTKViewDelegate   {
         }
         
         commandBuffer.commit();
+
         
         
     }
     func mtkView(_ view:MTKView,drawableSizeWillChange size:CGSize)
     {
-        
+        _viewportSize.x = uint(size.width);
+        _viewportSize.y = uint(size.height);
     }
     
 }

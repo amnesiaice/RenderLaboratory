@@ -13,31 +13,48 @@ import MetalKit
 
 class ViewController: NSViewController {
     
-    var _view:MTKView?;
+    private lazy var _view:MTKView=viewCreate();
     
     var _renderer:RLRenderer?;
-    
+
+    override func loadView() {
+        self.view=_view;
+    }
+//    init() {
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    //    required init?(coder: NSCoder) {
+//        //fatalError()
+//    }
     override func viewDidLoad() {
        
-        
+        super.viewDidLoad();
         // Do any additional setup after loading the view.
-        _view = MTKView();
-        self.view=_view!;
-        _view?.device=MTLCreateSystemDefaultDevice();
-        if _view?.device == nil
+
+        //self.view.addSubview(_view!);
+    }
+    func viewCreate()->MTKView {
+        let funView=MTKView(frame: NSMakeRect(0,0,800,600), device: nil);
+        funView.device=MTLCreateSystemDefaultDevice();
+        if funView.device == nil
         {
             NSLog("Metal is not supported on this device");
-            return;
+            return funView;
         }
-        _renderer = RLRenderer().initWithMetalKitView(mtkView: _view!);
+        _renderer = RLRenderer().initWithMetalKitView(mtkView: funView);
         if _renderer==nil
         {
             NSLog("Renderer failed initialization" );
-            return;
+            return funView;
         }
-        _view?.delegate = _renderer;
-        _view?.preferredFramesPerSecond  =  60;
-         super.viewDidLoad();
+        
+        funView.delegate = _renderer;
+        funView.preferredFramesPerSecond  =  60;
+        return funView;
     }
 
 //    override var representedObject: Any? {
