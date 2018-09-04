@@ -38,23 +38,23 @@ class ViewController: NSViewController {
         //self.view.addSubview(_view!);
     }
     func viewCreate()->MTKView {
-        let funView=MTKView(frame: NSMakeRect(0,0,800,600), device: nil);
-        funView.device=MTLCreateSystemDefaultDevice();
-        if funView.device == nil
+        let view=MTKView(frame: NSMakeRect(0,0,800,600), device: nil);
+        view.device=MTLCreateSystemDefaultDevice();
+        if view.device == nil
         {
             NSLog("Metal is not supported on this device");
-            return funView;
+            return view;
         }
-        _renderer = RLRenderer().initWithMetalKitView(mtkView: funView);
+        _renderer = RLRenderer().initWithMetalKitView(mtkView: view);
         if _renderer==nil
         {
             NSLog("Renderer failed initialization" );
-            return funView;
+            return view;
         }
         
-        funView.delegate = _renderer;
-        funView.preferredFramesPerSecond  =  60;
-        return funView;
+        view.delegate = _renderer;
+        view.preferredFramesPerSecond  =  60;
+        return view;
     }
 
 //    override var representedObject: Any? {

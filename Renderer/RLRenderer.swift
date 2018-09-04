@@ -17,6 +17,10 @@ class RLRenderer : NSObject,MTKViewDelegate   {
     var _pipelineState  :   MTLRenderPipelineState?
     var _viewportSize   :   vector_uint2 = uint2(800,600);
 
+    static var growing:Bool=true;
+    static var primaryChannel   :   NSInteger=0;
+    static var colorChannels    :   [Double]=[1.0,0.0,0.0,1.0]
+    
     struct Color {
         var red:Double = 0;
         var green:Double = 0;
@@ -31,10 +35,7 @@ class RLRenderer : NSObject,MTKViewDelegate   {
         return self
     }
     
-    //Since we cannot put static variable into a function, so I have to put it before the function
-    static var growing:Bool=true;
-    static var primaryChannel   :   NSInteger=0;
-    static var colorChannels    :   [Double]=[1.0,0.0,0.0,1.0]
+
     static func makeFancyColor() -> Color {
         let DynamicColorRate : Double = 0.015;
         
